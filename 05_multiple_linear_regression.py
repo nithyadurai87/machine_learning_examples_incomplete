@@ -1,5 +1,5 @@
 from sklearn.linear_model import LinearRegression
-import matplotlib.pyplot as plt 
+from numpy.linalg import lstsq
 
 x = [[6, 2], [8, 1], [10, 0], [14, 2], [18, 0]]
 y = [[7], [9], [13], [17.5], [18]]
@@ -13,15 +13,6 @@ predictions = model.predict(x1)
 for i, prediction in enumerate(predictions):
 	print ((prediction, y1[i]))
 	
-plt.figure()
-plt.title('Pizzapriceplottedagainstdiameter')
-plt.xlabel('Diameterininches')
-plt.ylabel('Priceindollars')
-plt.plot(x,y,'.')
-plt.plot(x,model.predict(x),'--')
-plt.axis([0,25,0,25])
-plt.grid(True)
-plt.show()
+print ("Training Errors = ",lstsq(x, y, rcond=None)[0])
 	
-print (model.score(x1, y1))
-
+print ("Score = ",model.score(x1, y1))
