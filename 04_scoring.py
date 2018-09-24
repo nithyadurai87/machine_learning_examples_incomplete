@@ -10,4 +10,4 @@ model.fit(x,y)
 
 x_test = [[8], [9], [11], [16], [12]]
 y_test = [[11], [8.5], [15], [18], [11]]
-print (model.score(x_test, y_test))
+print ("Score = ",model.score(x_test, y_test))
